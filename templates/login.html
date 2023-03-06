@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Login {% endblock %}
+
+{% block content %}
+        <h3>Login</h3>
+        <form action="" method="POST" class="form">
+            {% if error %}
+            <div class="error">
+                {{ error }}
+            </div>
+            {% endif %}
+            <ul>
+                <li>
+                    <label for="username">E-posta</label>
+                    <input type="email" name="email" value="{{request.form['email']}}">
+                </li>
+                <li>
+                    <label for="password">Şifre</label>
+                    <input type="password" name="password">
+                </li>
+                <li>
+                    <button type="submit">Giriş yap</button>
+                </li>
+            </ul>
+            <span class="or">If you don't have any account. Please contact with admin.</span>
+            <a href="{{url_for('home')}}" class="form-url">Home</a>
+        </form>
+    </main>
+    {% endblock %}

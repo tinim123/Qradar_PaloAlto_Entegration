@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Home {% endblock %}
+
+{% block content %}
+
+        <h3>NSC SOAR</h3>
+        <form class="form-detail" id="" action="/ip_list" method="POST">
+        <div class="articles">
+            <article style="height: 100%; display: container; justify-content: center; align-items: center;">
+                <h4 style="text-align: center;">Blocked IP Check</h4>
+
+                {% if error %}
+                    <div class="error">
+                        {{ error }}
+                    </div>
+                    {% elif success %}
+                    <div class="success">
+                        {{success}}
+                    </div>
+                    {% endif %}
+                <form class="form-detail" id="" action="/white_list" method="POST">
+                    <div >
+                        <input type="text"
+                                    pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
+                                    name="list_ip" style="padding: 20px 15px; border-radius: 5px; display: block; justify-content: center; margin: auto; width: 500px;"
+                                    placeholder="Please Enter IP Address" maxlength="15"> <br/>
+                        <div class="input" style="display: flex; justify-content: space-evenly; align-items:center;">
+                            <input type="submit" name="list" id="list" class="show-btn" value="Check IP" style="width: 130px;">
+                            <input type="submit" name="show" id="show" class="show-btn" value="Show IP List" style="width: 130px;">
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div>
+    </form>
+    {% endblock %}

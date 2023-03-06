@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Whitelist {% endblock %}
+
+{% block content %}
+        <h3>NSC SOAR</h3>
+        <div class="articles">
+            
+            <article style="height: 100%; display: container; justify-content: center; align-items: center; border-radius: 5px;">
+                <h4 style="text-align: center;">Whitelist Control</h5>
+                    {% if error %}
+                    <div class="error">
+                        {{ error }}
+                    </div>
+                    {% elif success %}
+                    <div class="success">
+                        {{success}}
+                    </div>
+                    {% endif %}
+                <form class="form-detail" id="" action="/white_list" method="POST">
+                <div >
+                    <input type="text"
+                                pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
+                                name="add_ip" style="padding: 20px 15px; border-radius: 5px; display: block; justify-content: center; margin: auto; width: 500px;"
+                                placeholder="Please Enter IP Address" maxlength="15"> <br/>
+                    <textarea id="comment" class="comment" name="comment" placeholder="Please Enter Comment" maxlength="50"></textarea>
+                    <div class="input" style="display: flex; justify-content: center; align-items:center; gap: 50px;">
+                        <input type="submit" name="add_list" id="add_list" class="show-btn" value="Add IP" style="width: 130px;">
+                        <input type="submit" name="delete_ip" id="delete_ip" class="show-btn" value="Delete IP" style="width: 130px;">
+                        <input type="submit" name="show_list" id="show_list" class="show-btn" value="Show Whitelist" style="width: 130px;">
+                    </div>
+                </div>
+            </form>
+            </article>
+            {% for iplist in iplists %}
+            <div name="test" style="display: flex; float: left; width: 325px; height: 140px; ">
+            <article name="list_element" style="width: 250px; height: 125px; background-color: rgb(63, 241, 241);">
+                <p style="font-size: 13px; text-align: center; padding-bottom: 5px;">IP Address: {{iplist['ipaddress']}}</p>
+                <p style="font-size: 13px; text-align: center; padding-bottom: 5px;">Added User: {{iplist['current_user_name']}}</p>
+                <p style="font-size: 13px; text-align: center; padding-bottom: 5px;">Added Date: {{iplist['add_date']}} </p>
+                <p style="font-size: 13px; text-align: center;">Comment: {{iplist['comment']}} </p>
+            </article>
+        </div>
+            {% endfor %}
+        
+        </div>
+        {% endblock %}
+</html>

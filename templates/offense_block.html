@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Offense Block {% endblock %}
+
+{% block content %}
+<h3>NSC SOAR</h3>
+
+<div class="articles">
+    <article>
+        <h4 style="text-align: center;">Offense Block</h4>
+        {% if error %}
+        {% for i in error %}
+            <div class="error">
+            {{ i }}
+        {% endfor%}
+             IP Address(es) Already in Whitelist</div>
+            {% elif success %}
+            <div class="success">
+                {{success}}
+                </div>
+        {% endif %}
+
+        {% if error_msg %}
+            <div class="error"> {{error_msg}}</div>
+        {% endif %}
+        <form class="form-detail" id="" action="/offense_block" method="POST">
+            <div>
+                <input type="text" name="offense_id"
+                    style="padding: 20px 15px; border-radius: 5px; display: block; justify-content: center; margin: auto; width: 500px;"
+                    placeholder="Please Enter Offense ID" min="10000" max="99999"><br />
+                <div class="input" style="display: flex; justify-content: center; align-items:center; gap: 50px;">
+                    <input type="submit" name="search" id="search" class="show-btn" value="Block" style="width: 130px;">
+                </div>
+            </div>
+        </form>
+    </article>
+
+    {% if stat_code == 201 and result_offense %}
+    <article>
+        <h4 style="text-align: center;">Result</h4>
+        <textarea readonly style="display: flex; justify-content: center; align-items: center; margin: auto; padding: 10px; width: 500px; height: 200px; border-radius: 5px; resize: none;">
+            {% for sourceip in result_offense %}
+{{sourceip["s"]}}&#13;&#10;
+            {% endfor %}
+            </textarea>
+            {% endif %}
+    </article>
+</div>
+{% endblock %}

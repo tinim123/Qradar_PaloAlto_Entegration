@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            
+            <a href="{{url_for('home')}}" class="logo">
+                NSC SOAR
+            </a>
+            {% if 'user_id' in session %}
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('block_offense')}}">Offense Block</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('block_unblock')}}">Block & Unblock IPs</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('ip_list')}}">Blocked IP Search</a>
+                    </li>
+                    <li>
+                        <a href="{{url_for('white_list')}}">Add IP to Whitelist</a>
+                    </li>
+                    <li class="btn">
+                        <a href="{{url_for('logout')}}">Logout</a>                       
+                    </li>
+                    {% for users in user() %}
+                    <li>
+                    <a style="font-size: 12px; margin-left: -15px;">{{users['user_name']}}</a>
+                    </li>
+                    {% endfor%}
+                </ul>
+            </nav>
+            {% else %}
+            <nav>
+                <ul>
+                    <li class="btn">
+                        <a href="{{url_for('login')}}">Login</a>                       
+                    </li>
+                </ul>
+            </nav>
+            {% endif %}
+        </div>
+    </header>
+    <main class="main container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

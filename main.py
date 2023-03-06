@@ -36,7 +36,7 @@ now = datetime.now()
 #####################################
 
 ##### QRadar baglanti################
-qradar_auth_key = "0662a06c-a546-4c8e-9ba7-9c55f510545f"
+qradar_auth_key = "xxxxxxxxxxxxxxx"
 QRadar_headers = {
     'sec': qradar_auth_key,
     'content-type': "application/json",
@@ -130,10 +130,10 @@ def block_offense():
             ####################################
 
             try:
-              st_code = requests.post('https://172.16.1.157/api/ariel/searches',
+              st_code = requests.post('https://x.x.x.x/api/ariel/searches',
                                       params=query, headers=QRadar_headers, verify=False, auth=None, timeout=5)
               stat_code = st_code.status_code
-              response = requests.post('https://172.16.1.157/api/ariel/searches',
+              response = requests.post('https://x.x.x.x/api/ariel/searches',
                                    params=query, headers=QRadar_headers, verify=False, auth=None, timeout=5).json()
               searchid = response["search_id"]
               time.sleep(10)
@@ -150,7 +150,7 @@ def block_offense():
                 f.close()
                 return render_template('offense_block.html', error=error)
             try:
-              req = requests.get("https://172.16.1.157/api/ariel/searches/" +
+              req = requests.get("https://x.x.x.x/api/ariel/searches/" +
                                  searchid+"/results", headers=QRadar_headers, verify=False, timeout=5).json()
               result_offense = req["events"]
             except (requests.exceptions.ConnectTimeout, UnboundLocalError, KeyError, HTTPError, TypeError, RuntimeError) as error:

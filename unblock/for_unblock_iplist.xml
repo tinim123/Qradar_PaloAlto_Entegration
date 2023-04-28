@@ -1,0 +1,12 @@
+<uid-message>
+<type>update</type>
+  <payload>
+    <unregister>
+      <entry ip="91.193.129.151" persistent="1">
+        <tag>
+          <member>blacklist-ip-group</member>
+        </tag>
+      </entry>
+    </unregister>
+  </payload>
+</uid-message>

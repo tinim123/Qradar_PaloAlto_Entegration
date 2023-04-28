@@ -1,0 +1,8 @@
+<response status="success"><result><uid-response>
+  <version>2.0</version>
+  <payload>
+    <unregister>
+    </unregister>
+  </payload>
+</uid-response>
+</result></response>

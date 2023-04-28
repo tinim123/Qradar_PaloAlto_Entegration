@@ -10,29 +10,32 @@
 
 <h2>🛠️ Installation Steps:</h2>
 
-<p>1. 1</p>
+<p>1</p>
 
 ```
 git clone https://github.com/tinim123/Qradar_PaloAlto_Entegration.git
 ```
 
-<p>2. 1</p>
+<p>2</p>
 
 ```
 cd Qradar_PaloAlto_Entegration
 ```
 
-<p>3. 1</p>
+<p>3</p>
 
 ```
 pip install -r requirements.txt
 ```
 
-<p>4. 1</p>
+<p>4</p>
 
 ```
 FLASK_APP=main.py
 ```
+
+<p>5</p>
+
 
 ```
 flask run

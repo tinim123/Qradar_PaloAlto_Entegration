@@ -1,0 +1,13 @@
+<uid-message>
+<type>update</type>
+  <payload>
+    <register>
+      <entry ip="43.43.43.43" persistent="1">
+        <tag>
+          <member>blacklist-ip-group</member>
+          <member timeout="259200">black-list-timeout</member>
+        </tag>
+      </entry>
+    </register>
+  </payload>
+</uid-message>

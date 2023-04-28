@@ -1,0 +1,10 @@
+requests
+urllib3
+functools
+flask
+flask_cors
+flask_login
+elementpath
+ElementTree
+hashlib
+mysql-connector-python

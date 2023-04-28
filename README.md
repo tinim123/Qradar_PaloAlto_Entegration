@@ -2,6 +2,9 @@
 
 <p id="description">You can block or unblock IP's in PaloAlto Firewall with this project. You need qradar auth key and palo alto auth key to use this project. In this project which was written in python flask mysql was used as database. If you want to use this project please install mysql database firstly. Please get qradar quth key and paloalto auth key.</p>
 
+
+<p id="description"> create "users",  "whitelist" in "soar" database</p>
+
 <h2>Project Screenshots:</h2>
 
 <img src="" alt="project-screenshot" width="150" height="150/">
